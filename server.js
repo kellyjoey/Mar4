@@ -56,8 +56,26 @@ app.post("/api/new", function(req, res) {
 
   // We then display the JSON to the users
   res.json(newreservation);
-  fs.appendFile("tables.txt", JSON.stringify(newreservation));
-  console.log(newreservation);
+  // fs.appendFile("tables.txt", JSON.stringify(newreservation));
+  var stuffs = "";
+  fs.readFile("tables.txt", (err, data) => {
+  	if (err) throw err;
+  	// console.log(data);
+  	stuffs = JSON.stringify(data);
+  	console.log(stuffs);
+  });
+
+  console.log(stuffs);
+//   console.log(readFile);
+// if ("tables.txt"){
+//  readFile.push(JSON.stringify(newreservation));
+//  fs.appendFile("tables.txt", readFile)
+// } else {
+//  readFile = [];
+//  readFile.push(JSON.stringify(newreservation));
+//  fs.appendFile("tables.txt", readFile)
+// }
+  // console.log(newreservation);
 });
 
 
