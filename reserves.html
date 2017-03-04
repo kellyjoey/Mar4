@@ -76,6 +76,7 @@
 
 	</div>
 <script>
+
 $(".submit").on("click", function(event) {
      
       event.preventDefault();
@@ -85,14 +86,42 @@ $(".submit").on("click", function(event) {
         email: $("#reserve_email").val().trim(),
         uniqueID: $("#reserve_uniqueID").val().trim()
       };
+      console.log(newReservation);
+      
 
-      // Question: What does this code do??
+       // Question: What does this code do??
       $.post("/api/new", newReservation)
       .done(function(data) {
         console.log(data);
         // fs.appendFile(tables.txt, data);
         alert("Adding reservation...");
       });
+
+   //    var currentURL = window.location.origin;
+
+	  //   $.post(currentURL + "/api/tables", newReservation,
+	  //   function(data){
+
+	  //   	// If a table is available... tell user they are booked.
+	  //   	if(data == true){
+	  //   		alert("Yay! You are officially booked!")
+	  //   	}
+
+	  //   	// If a table is available... tell user they on the waiting list.
+	  //   	if(data == false){
+	  //   		alert("Sorry you are on the wait list")
+	  //   	}
+
+	  //   	// Clear the form when submitting
+   //  		$('#reserve_name').val("");
+			// $('#reserve_phone').val("");
+			// $('#reserve_email').val("");
+			// $('#reserve_uniqueID').val("");
+
+	  //   });
+
+
+     
     });
 </script>
 </body>

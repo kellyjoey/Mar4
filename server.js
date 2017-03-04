@@ -44,7 +44,7 @@ app.get("/reserves", function(req, res) {
   res.sendFile(path.join(__dirname, "reserves.html"));
 });
 
-// Create New Characters - takes in JSON input
+// Create New Reservations - takes in JSON input
 app.post("/api/new", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   var newreservation = req.body;
@@ -56,6 +56,7 @@ app.post("/api/new", function(req, res) {
 
   // We then display the JSON to the users
   res.json(newreservation);
+  fs.appendFile("tables.txt", JSON.stringify(newreservation));
   console.log(newreservation);
 });
 
